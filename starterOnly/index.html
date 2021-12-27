@@ -25,10 +25,9 @@
       <a href="#"><span>Évènements passés</span></a>
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
-      </a>
+      </a>  
     </div>
     </div>
-  </div>
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -40,42 +39,61 @@
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
             aux réservations... Places limitées !
           </p>
-          <button class="btn-signup modal-btn">
+          <button type="button" class="btn-signup modal-btn">
             je m'inscris
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" alt="Photo d'un gamer devant un écran" width="354" height="329"/>
         </div>
-        <button class="btn-signup modal-btn">
+        <button type="button" class="btn-signup modal-btn">
           je m'inscris
         </button>
       </div>
 
+      <!-- MODAL: -->
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
-          <div class="modal-body">
+          <!-- Fermer le bouton (x) -->
+          <span class="close" id="close"></span>
+          <div class="modal-body" id="modal-body">
+            <!-- Message de succès -->
+            <div class="sucess-message" id="sucess-message">
+              <span>Merci ! Votre réservation a bien été reçue.</span>
+              <input 
+                id="sucess-close-btn"
+                class="btn-submit button"
+                type="button"
+                value="Fermer"
+              />
+            </div>
+
+            <!-- Mise à jour 
+                 id="form"
+                 Retrait de method="get" onsubmit="return validate(); -->
             <form
+              id="form"
               name="reserve"
               action="index.html"
-              method="get"
-              onsubmit="return validate();"
+              method="POST"
+              novalidate
             >
               <div
                 class="formData">
-                <label>Prénom</label><br>
+                <!--Ajout de for="first" 
+                    Retrait de minlength="2" -->
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
                 /><br>
               </div>
               <div
                 class="formData">
-                <label>Nom</label><br>
+                <!-- Ajout de for="last" -->
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -85,7 +103,8 @@
               </div>
               <div
                 class="formData">
-                <label>E-mail</label><br>
+                <!-- Ajout de for="email" -->
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
@@ -95,7 +114,8 @@
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <!-- Ajout de for="birthdate" -->
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
@@ -105,7 +125,8 @@
               </div>
               <div
                 class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <!-- Ajout de for="quantity" -->
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
@@ -187,7 +208,8 @@
                   id="checkbox1"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <!-- Retrait de required -->
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
