@@ -54,44 +54,42 @@
       <!-- MODAL: -->
       <div class="bground">
         <div class="content">
-          <!-- Fermer le bouton (x) -->
+          <!-- 1. Close modal -->
           <span class="close" id="close"></span>
           <div class="modal-body" id="modal-body">
-            <!-- Message de succès -->
-            <div class="sucess-message" id="sucess-message">
-              <span>Merci ! Votre réservation a bien été reçue.</span>
-              <input 
-                id="sucess-close-btn"
-                class="btn-submit button"
-                type="button"
-                value="Fermer"
-              />
+            <!-- 4. Ajout confirmation quand envoie réussi  -->
+            <div id="confirmation">
+              <h1>Merci ! Votre réservation a bien été reçue.</h1>
+              <button class="btn-close">Fermer</button>
             </div>
-
-            <!-- Mise à jour 
-                 id="form"
-                 Retrait de method="get" onsubmit="return validate(); -->
+            
+            <!-- 2. Implémenter entrées du formulaire -->
+            <!-- Mise à jour id="form"  -->
             <form
               id="form"
               name="reserve"
               action="index.html"
-              method="POST"
-              novalidate
+              method="get"
+              onsubmit="return validate();" 
             >
               <div
                 class="formData">
-                <!--Ajout de for="first" 
-                    Retrait de minlength="2" -->
+                <!-- 2. Implémenter entrées du formulaire -->
+                <!--Ajout de for="first" -->
                 <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
+                  minlength="2"
                 /><br>
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-first"></div>
               <div
                 class="formData">
+                <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="last" -->
                 <label for="last">Nom</label><br>
                 <input
@@ -99,10 +97,14 @@
                   type="text"
                   id="last"
                   name="last"
+                  minlength="2"
                 /><br>
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-last"></div>
               <div
                 class="formData">
+                <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="email" -->
                 <label for="email">E-mail</label><br>
                 <input
@@ -112,8 +114,11 @@
                   name="email"
                 /><br>
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-mail"></div>
               <div
                 class="formData">
+                <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="birthdate" -->
                 <label for="birthdate">Date de naissance</label><br>
                 <input
@@ -123,12 +128,17 @@
                   name="birthdate"
                 /><br>
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-birth"></div>
               <div
                 class="formData">
+                <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="quantity" -->
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-quantity"></div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
                 class="formData">
@@ -199,17 +209,20 @@
                   Portland</label
                 >
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-city"></div>
 
               <div
                 class="formData">
+                <!-- 3. Ajout validation pour id="checkbox1" -->
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
                   checked
                 />
-                <!-- Retrait de required -->
-                <label class="checkbox2-label" for="checkbox1">
+                
+                <label class="checkbox2-label" for="checkbox1" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -217,10 +230,12 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
+              <!-- 3. Messages d'erreur à l'envoi -->
+              <div id="error-validation"></div>
               <input
                 class="btn-submit"
                 type="submit"
