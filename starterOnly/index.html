@@ -55,18 +55,13 @@
       <div class="bground">
         <div class="content">
           <!-- 1. Close modal -->
-          <span class="close" id="close"></span>
-          <div class="modal-body" id="modal-body">
+          <span class="close"></span>
+          <div class="modal-body">
             <!-- 4. Ajout confirmation quand envoie réussi  -->
-            <div id="confirmation">
-              <h1>Merci ! Votre réservation a bien été reçue.</h1>
-              <button class="btn-close">Fermer</button>
-            </div>
-            
             <!-- 2. Implémenter entrées du formulaire -->
             <!-- Mise à jour id="form"  -->
             <form
-              id="form"
+              id="formReserve"
               name="reserve"
               action="index.html"
               method="get"
@@ -83,12 +78,14 @@
                   id="first"
                   name="first"
                   minlength="2"
+                  required
                 /><br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="first-error error-msn">
+                  Veuillez entrer 2 caractères ou plus pour le champ du prénom.
+                </p>
               </div>
-              <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-first"></div>
-              <div
-                class="formData">
+              <div class="formData">
                 <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="last" -->
                 <label for="last">Nom</label><br>
@@ -98,24 +95,30 @@
                   id="last"
                   name="last"
                   minlength="2"
+                  required
                 /><br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="last-error error-msn">
+                  Veuillez entrer 2 caractères ou plus pour le champ du nom.
+                </p>
               </div>
-              <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-last"></div>
-              <div
-                class="formData">
+              <div class="formData">
                 <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="email" -->
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
-                  type="email"
+                  type="text"
                   id="email"
+                  pattern=".+@.+\..+"
                   name="email"
+                  required
                 /><br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="email-error error-msn">
+                  Veuillez entrer un adress mail valide.
+                </p>
               </div>
-              <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-mail"></div>
               <div
                 class="formData">
                 <!-- 2. Implémenter entrées du formulaire -->
@@ -126,22 +129,25 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
+                  required
                 /><br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="date-error error-msn">
+                  Vous devez entrer votre date de naissance.
+                </p>
               </div>
-              <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-birth"></div>
               <div
                 class="formData">
                 <!-- 2. Implémenter entrées du formulaire -->
                 <!-- Ajout de for="quantity" -->
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99"><br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="quantity-error error-msn">
+                  A quel tournoi souhaitez-vous participer cette année ?
+                </p>
               </div>
-              <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-quantity"></div>
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-              <div
-                class="formData">
+              <div class="formData">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -206,20 +212,20 @@
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  Portland</label
-                >
+                  Portland
+                </label><br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="location-error error-msn">
+                  Veuillez entrer une ville.
+                </p>
               </div>
-              <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-city"></div>
-
-              <div
-                class="formData">
+              <div class="formData">
                 <!-- 3. Ajout validation pour id="checkbox1" -->
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
+                  required
                 />
                 
                 <label class="checkbox2-label" for="checkbox1">
@@ -227,6 +233,11 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <!-- 3. Messages d'erreur à l'envoi -->
+                <p class="conditions-error error-msn">
+                  Vous devez vérifier que vous acceptez les termes et conditions.
+                </p>
+                
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -235,13 +246,28 @@
                 <br>
               </div>
               <!-- 3. Messages d'erreur à l'envoi -->
-              <div id="error-validation"></div>
+              <p class="submit-error error-msn">
+                Vous devez vérifier que prénom, nom, email et date de naissance soient
+                rempli.
+              </p>
+
               <input
+                id="submitButton"
                 class="btn-submit button"
                 type="submit"
                 value="C'est parti"
               />
             </form>
+            <div class="thankyou">
+              <div class="thankyou__text">
+                <p>Merci!</p>
+                <p> Votre réservation<br /> a été reçue.</p>
+              </div>
+  
+              <button class="btn-close modal-btn">
+                Fermer
+              </button>
+            </div>
           </div>
         </div>
       </div>
