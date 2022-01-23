@@ -202,13 +202,6 @@ input {
   outline: none;
 }
 
-/* Ajout Checkbox */
-
-/* .checkbox-input {
-  font-size: 12px;
-}
- */
-
 .text-control {
   margin: 0;
   padding: 8px;
@@ -236,6 +229,27 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
+.first-error,
+.last-error,
+.email-error,
+.location-error,
+.location-error,
+.quantity-error,
+.date-error,
+.conditions-error,
+.submit-error {
+  display: none;
+}
+
+
+.error-msn {
+  font-size: 0.6em;
+  font-weight: normal;
+  color: #e54858;
+}
+
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -499,6 +513,28 @@ input[data-error]::after {
   padding: 0;
   object-fit: cover;
 }
+
+/* modal thank you  */
+.thankyou {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 8%;
+  /* margin: 15px auto; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.thankyou__text {
+  padding: 206px 0;
+}
+
+.thankyou__text p {
+  align-self: flex-end;
+  text-align: center;
+  font-size: 2rem;
+}
+
+
 .copyrights {
   color: #fe142f;
   padding: 0;

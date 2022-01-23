@@ -265,12 +265,7 @@ closebuttonModal.addEventListener("click", () => {
   modalbg.style.display = "none";
 });
 
-/** 2. Implémenter les entrées de formulaire */ 
 
-// Conserver les entrées de données du formulaire
-
-
-/* 4. Ajout confirmation quand envoie réussi */
 
 //Fermer le formulaire de confirmation
 confirmationCloseBtn[0].addEventListener("click", closeModal);
